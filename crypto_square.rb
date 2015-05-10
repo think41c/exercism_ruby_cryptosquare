@@ -1,10 +1,11 @@
 class Crypto
 
   def initialize(x)
+    @x = x
   end
 
   def normalize_plaintext
-    "splunk"
+    result = @x.downcase.gsub(/\W/, "")
   end
 
   def normalize_ciphertext

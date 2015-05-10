@@ -15,6 +15,10 @@ class Crypto
   end
 
   def plaintext_segments
+    # This is NOT replacing punctuation with a single
+    # space. This is taking the full normalized plaintext
+    # and splitting it into the square length.
+    %w(zomg zomb ies)
   end
 
   def size

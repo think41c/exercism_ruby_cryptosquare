@@ -2,12 +2,13 @@ class Crypto
 
   def initialize(plain_word)
     @plain_word = plain_word
-    @len        = @plain_word.length
     normalize_plaintext
+    @len        = @result.length
+    
   end
 
   def normalize_plaintext
-    result = @plain_word.downcase.gsub(/\W/, "")
+    @result = @plain_word.downcase.gsub(/\W/, "")
   end
 
   def normalize_ciphertext

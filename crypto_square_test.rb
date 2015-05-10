@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'crypto_square'
 
 class CryptoTest < Minitest::Test
@@ -8,7 +9,6 @@ class CryptoTest < Minitest::Test
   end
 
   def test_normalize_uppercase_characters
-    skip
     crypto = Crypto.new('WHOA HEY!')
     assert_equal 'whoahey', crypto.normalize_plaintext
   end

@@ -1,13 +1,13 @@
 class Crypto
 
-  def initialize(x)
-    @x = x
+  def initialize(plain_word)
+    @plain_word = plain_word
+    @len        = @plain_word.length
     normalize_plaintext
   end
 
   def normalize_plaintext
-    result = @x.downcase.gsub(/\W/, "")
-    @len = @x.length
+    result = @plain_word.downcase.gsub(/\W/, "")
   end
 
   def normalize_ciphertext
@@ -17,14 +17,13 @@ class Crypto
   end
 
   def size
-    counter = 1
-    square  = 2
-    until square >= @len
-      counter += 1
-      puts "counter #{counter}, square #{square}, len #{@len}"
-      square = counter * counter
+    square   = 1
+    counter  = 2
+    until counter >= @len
+      square += 1
+      counter = square * square
     end
-    counter
+    square
   end
 end
 

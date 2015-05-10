@@ -2,10 +2,12 @@ class Crypto
 
   def initialize(x)
     @x = x
+    normalize_plaintext
   end
 
   def normalize_plaintext
     result = @x.downcase.gsub(/\W/, "")
+    @len = @x.length
   end
 
   def normalize_ciphertext
@@ -15,15 +17,16 @@ class Crypto
   end
 
   def size
-    size = 0 
-    a = Math.sqrt(@x)
-    if a % 1 == 0
-      size = a.round
-    else
-      size = a.round + 1 
+    counter = 1
+    square  = 2
+    until square >= @len
+      counter += 1
+      puts "counter #{counter}, square #{square}, len #{@len}"
+      square = counter * counter
     end
-    size
+    counter
   end
 end
 
-# a = Crypto.new(10)
+a = Crypto.new("6789")
+p a.size

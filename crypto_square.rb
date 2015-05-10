@@ -7,5 +7,14 @@ class Crypto
     "splunk"
   end
 
+  def normalize_ciphertext
+  end
+
+  def plaintext_segments
+  end
+
+  def size
+  end
+
 end
 

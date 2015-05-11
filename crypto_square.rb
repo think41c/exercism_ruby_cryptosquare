@@ -20,8 +20,9 @@ class Crypto
     row_counter = 0
     col_counter = 0 
 
-    until row_counter == size - 1
-      until col_counter == size - 1 
+    until row_counter == size
+      puts "I should be incrementing the row_counter"
+      until col_counter == size
         puts "inside #{col_counter}"
         puts @plain_result[col_counter][row_counter]
         col_counter += 1   
@@ -29,9 +30,9 @@ class Crypto
       row_counter += 1
     end
 
-    puts @plain_result[1][0]
+    # puts @plain_result[1][0]
     # ...
-    puts @plain_result[5][5]
+    # puts @plain_result[5][5]
 
     # Result should be -> "tasneyinicdsmiohooelntuillibsuuml"
   end

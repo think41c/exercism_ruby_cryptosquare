@@ -15,7 +15,13 @@ class Crypto
   end
 
   def ciphertext
-    "tasneyinicdsmiohooelntuillibsuuml"
+    plaintext_segments
+    puts "This is the plain result #{@plain_result}"
+    puts @plain_result[0][0]
+    puts @plain_result[1][0]
+    # ...
+    puts @plain_result[4][5]
+    # Result should be -> "tasneyinicdsmiohooelntuillibsuuml"
   end
 
   def plaintext_segments
@@ -32,7 +38,7 @@ class Crypto
       end
       plain_rows.join
     end
-    p plain_rows.join.scan(/.{1,#{row_characters}}/)
+    @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)
   end
 
   def size
@@ -46,5 +52,7 @@ class Crypto
   end
 end
 
-a = Crypto.new('ZOMG! ZOMBIES!!!')
-p a.plaintext_segments
+a = Crypto.new('Time is an illusion. Lunchtime doubly so.')
+# puts a.plaintext_segments
+a.ciphertext
+# Should be - tasneyinicdsmiohooelntuillibsuuml

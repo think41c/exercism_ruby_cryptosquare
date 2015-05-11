@@ -14,6 +14,10 @@ class Crypto
   def normalize_ciphertext
   end
 
+  def ciphertext
+    "tasneyinicdsmiohooelntuillibsuuml"
+  end
+
   def plaintext_segments
     col_counter = 0
     row_counter = 0

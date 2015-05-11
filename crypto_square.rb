@@ -28,9 +28,7 @@ class Crypto
       end
       plain_rows.join
     end
-    # Use the join to convert to a string, then scan method to convert to array.
-    p plain_rows.join.scan(/.{1,2}/)
-
+    p plain_rows.join.scan(/.{1,4}/)
   end
 
   def size

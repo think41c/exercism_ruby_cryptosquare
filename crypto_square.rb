@@ -3,8 +3,7 @@ class Crypto
   def initialize(plain_word)
     @plain_word = plain_word
     normalize_plaintext
-    @len        = @result.length
-    
+    @len = @result.length
   end
 
   def normalize_plaintext
@@ -22,6 +21,7 @@ class Crypto
 
     until row_counter == size
       puts "I should be incrementing the row_counter"
+      col_counter = 0 
       until col_counter == size
         puts "inside #{col_counter}"
         puts @plain_result[col_counter][row_counter]
@@ -29,12 +29,6 @@ class Crypto
       end
       row_counter += 1
     end
-
-    # puts @plain_result[1][0]
-    # ...
-    # puts @plain_result[5][5]
-
-    # Result should be -> "tasneyinicdsmiohooelntuillibsuuml"
   end
 
   def plaintext_segments
@@ -66,6 +60,5 @@ class Crypto
 end
 
 a = Crypto.new('Time is an illusion. Lunchtime doubly so.')
-# puts a.plaintext_segments
 p a.size
 a.ciphertext

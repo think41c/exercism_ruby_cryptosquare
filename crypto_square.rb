@@ -15,10 +15,22 @@ class Crypto
   end
 
   def plaintext_segments
-    # This is NOT replacing punctuation with a single
-    # space. This is taking the full normalized plaintext
-    # and splitting it into the square length.
-    %w(zomg zomb ies)
+    col_counter = 0
+    row_counter = 0
+    row_characters = size
+    plain_rows = []
+    puts "The row chars - #{row_characters}. Lenght of word #{@len} - #{normalize_plaintext}"
+    
+    if   
+      until col_counter == row_characters * row_characters
+        plain_rows << @result[col_counter]
+        col_counter += 1 
+      end
+      plain_rows.join
+    end
+    # Use the join to convert to a string, then scan method to convert to array.
+    p plain_rows.join.scan(/.{1,2}/)
+
   end
 
   def size
@@ -32,5 +44,5 @@ class Crypto
   end
 end
 
-a = Crypto.new("6789")
-p a.size
+a = Crypto.new('ZOMG! ZOMBIES!!!')
+p a.plaintext_segments

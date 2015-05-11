@@ -15,19 +15,14 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    puts "This is the plain result #{puts @plain_result}"
+    # puts "This is the plain result #{puts @plain_result}"
     row_counter = 0
     col_counter = 0 
     total_result = []
     until row_counter == size
-      puts "I should be incrementing the row_counter"
-      
-      puts "here! #{total_result}"
-      
       col_counter = 0 
       result = []
       until col_counter == size
-        # puts "inside #{col_counter}"
         result << @plain_result[col_counter][row_counter]
         col_counter += 1   
       end
@@ -43,7 +38,6 @@ class Crypto
     row_counter = 0
     row_characters = size
     plain_rows = []
-    # puts "The row chars - #{row_characters}. Lenght of word #{@len} - #{normalize_plaintext}"
     
     if   
       until col_counter == row_characters * row_characters
@@ -67,5 +61,4 @@ class Crypto
 end
 
 a = Crypto.new('Time is an illusion. Lunchtime doubly so.')
-# p a.size
 p a.ciphertext

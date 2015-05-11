@@ -35,7 +35,7 @@ class Crypto
       puts total_result
       total_result << result.join.scan(/.{1,#{size}}/)
     end
-    total_result
+    total_result.flatten.join
   end
 
   def plaintext_segments

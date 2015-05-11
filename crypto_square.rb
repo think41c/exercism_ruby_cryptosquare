@@ -18,21 +18,24 @@ class Crypto
     puts "This is the plain result #{puts @plain_result}"
     row_counter = 0
     col_counter = 0 
-
+    total_result = []
     until row_counter == size
       puts "I should be incrementing the row_counter"
+      
+      puts "here! #{total_result}"
+      
       col_counter = 0 
       result = []
       until col_counter == size
-        puts "inside #{col_counter}"
-        # puts @plain_result[col_counter][row_counter]
+        # puts "inside #{col_counter}"
         result << @plain_result[col_counter][row_counter]
         col_counter += 1   
       end
-      # p result
-      p result.join.scan(/.{1,#{size}}/)
       row_counter += 1
+      puts total_result
+      total_result << result.join.scan(/.{1,#{size}}/)
     end
+    total_result
   end
 
   def plaintext_segments
@@ -40,7 +43,7 @@ class Crypto
     row_counter = 0
     row_characters = size
     plain_rows = []
-    puts "The row chars - #{row_characters}. Lenght of word #{@len} - #{normalize_plaintext}"
+    # puts "The row chars - #{row_characters}. Lenght of word #{@len} - #{normalize_plaintext}"
     
     if   
       until col_counter == row_characters * row_characters
@@ -64,5 +67,5 @@ class Crypto
 end
 
 a = Crypto.new('Time is an illusion. Lunchtime doubly so.')
-p a.size
-a.ciphertext
+# p a.size
+p a.ciphertext

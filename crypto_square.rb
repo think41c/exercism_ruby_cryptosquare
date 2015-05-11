@@ -28,7 +28,7 @@ class Crypto
       end
       plain_rows.join
     end
-    p plain_rows.join.scan(/.{1,4}/)
+    p plain_rows.join.scan(/.{1,#{row_characters}}/)
   end
 
   def size

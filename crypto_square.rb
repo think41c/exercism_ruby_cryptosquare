@@ -22,11 +22,15 @@ class Crypto
     until row_counter == size
       puts "I should be incrementing the row_counter"
       col_counter = 0 
+      result = []
       until col_counter == size
         puts "inside #{col_counter}"
-        puts @plain_result[col_counter][row_counter]
+        # puts @plain_result[col_counter][row_counter]
+        result << @plain_result[col_counter][row_counter]
         col_counter += 1   
       end
+      # p result
+      p result.join.scan(/.{1,#{size}}/)
       row_counter += 1
     end
   end
@@ -43,7 +47,7 @@ class Crypto
         plain_rows << @result[col_counter]
         col_counter += 1 
       end
-      plain_rows.join
+      plain_rows
     end
     @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)
   end

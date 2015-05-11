@@ -16,11 +16,23 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    puts "This is the plain result #{@plain_result}"
-    puts @plain_result[0][0]
+    puts "This is the plain result #{puts @plain_result}"
+    row_counter = 0
+    col_counter = 0 
+
+    until row_counter == size - 1
+      until col_counter == size - 1 
+        puts "inside #{col_counter}"
+        puts @plain_result[col_counter][row_counter]
+        col_counter += 1   
+      end
+      row_counter += 1
+    end
+
     puts @plain_result[1][0]
     # ...
-    puts @plain_result[4][5]
+    puts @plain_result[5][5]
+
     # Result should be -> "tasneyinicdsmiohooelntuillibsuuml"
   end
 
@@ -54,5 +66,5 @@ end
 
 a = Crypto.new('Time is an illusion. Lunchtime doubly so.')
 # puts a.plaintext_segments
+p a.size
 a.ciphertext
-# Should be - tasneyinicdsmiohooelntuillibsuuml

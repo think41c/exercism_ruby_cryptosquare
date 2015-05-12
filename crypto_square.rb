@@ -6,10 +6,6 @@ class Crypto
     @len = @result.length
   end
 
-  def normalize_plaintext
-    @result = @plain_word.downcase.gsub(/\W/, "")
-  end
-
   def normalize_ciphertext
   end
 
@@ -22,12 +18,17 @@ class Crypto
     until row_counter == size
       col_counter = 0 
       result = []
-      until col_counter == size
+      # require 'pry'
+      # binding.pry
+      afa = gets.chomp 
+      until col_counter == size 
+        puts result
+        afa = gets.chomp 
         result << @plain_result[col_counter][row_counter]
         col_counter += 1   
       end
       row_counter += 1
-      # puts total_result
+      puts total_result
       total_result << result.join.scan(/.{1,#{size}}/)
     end
     total_result.flatten.join
@@ -47,9 +48,16 @@ class Crypto
     @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)
   end
 
+# private
+
+  def normalize_plaintext
+    @result = @plain_word.downcase.gsub(/\W/, "")
+  end
+
   def size
     square   = 1
     counter  = 2
+
     until counter >= @len
       square += 1
       counter = square * square
@@ -58,5 +66,6 @@ class Crypto
   end
 end
 
-a = Crypto.new('Vampires are people tooA!')
+a = Crypto.new('Vampires are people too!')
+p a.plaintext_segments
 p a.ciphertext

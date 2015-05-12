@@ -11,26 +11,44 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    # puts "This is the plain result #{puts @plain_result}"
+    puts "This is the plain result #{ @plain_result}"
     row_counter = 0
-    col_counter = 0 
     total_result = []
-    until row_counter == size
-      col_counter = 0 
-      result = []
-      # require 'pry'
-      # binding.pry
-      afa = gets.chomp 
-      until col_counter == size 
-        puts result
-        afa = gets.chomp 
-        result << @plain_result[col_counter][row_counter]
-        col_counter += 1   
-      end
-      row_counter += 1
-      puts total_result
-      total_result << result.join.scan(/.{1,#{size}}/)
-    end
+    # until row_counter == 3 
+    #   col_counter = 0   # Reset the column counter.
+    #   result = []       # The result for a single index in the array is stored here.
+
+    #   until col_counter == 5
+    #     puts "FUCL YOU! #{@plain_result[3][4]}"
+    #     result << @plain_result[col_counter][row_counter]
+    #     puts @plain_result[col_counter][row_counter]
+    #     col_counter += 1   
+    #   end
+    #   row_counter += 1
+    #   puts total_result
+    #   total_result << result.join.scan(/.{1,#{size}}/)
+    # end
+    p @plain_result
+    p @plain_result[0][0]
+    p @plain_result[1][0]
+    p @plain_result[2][0]
+    p @plain_result[3][0]
+    p @plain_result[0][1]
+    p @plain_result[1][1]
+    p @plain_result[2][1]
+    p @plain_result[3][1]
+    p @plain_result[0][2]
+    p @plain_result[1][2]
+    p @plain_result[2][2]
+    p @plain_result[3][2]
+    p @plain_result[0][3]
+    p @plain_result[1][3]
+    p @plain_result[2][3]
+    p @plain_result[3][3]
+    p @plain_result[0][4]
+    p @plain_result[1][4]
+    p @plain_result[2][4]
+    p @plain_result[3][4]
     total_result.flatten.join
   end
 
@@ -67,5 +85,5 @@ class Crypto
 end
 
 a = Crypto.new('Vampires are people too!')
-p a.plaintext_segments
-p a.ciphertext
+# p a.plaintext_segments
+ a.ciphertext

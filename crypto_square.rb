@@ -35,13 +35,31 @@ class Crypto
     until first == 4
       second = 0 
       result = []
-      puts "Letters - > #{@plain_result[first][second]}"
-      
-      until second == 4
-        puts "Second- > #{@plain_result[first][second]}"
-        puts second
-        second += 1 
-      end
+      # puts "Letters - > #{@plain_result[first][second]}"
+      result << @plain_result[first][second]
+      p result
+      first += 1
+    end
+
+    first = 0 
+
+    until first == 4
+      second = 1 
+      result = []
+      # puts "Letters - > #{@plain_result[first][second]}"
+      result << @plain_result[first][second]
+      puts result
+      first += 1
+    end
+
+    first = 0 
+
+    until first == 4
+      second = 2 
+      result = []
+      # puts "Letters - > #{@plain_result[first][second]}"
+      result << @plain_result[first][second]
+      p result
       first += 1
     end
 

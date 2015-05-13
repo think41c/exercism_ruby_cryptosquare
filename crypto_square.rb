@@ -82,7 +82,7 @@ class Crypto
       p result 
       first += 1
       total_result << result.join.scan(/.{1,#{size}}/)
-      p total_result
+      p total_result.flatten(4)
     end
 
 
@@ -124,8 +124,6 @@ class Crypto
     @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)
   end
 
-# private
-
   def normalize_plaintext
     @result = @plain_word.downcase.gsub(/\W/, "")
   end
@@ -143,5 +141,4 @@ class Crypto
 end
 
 a = Crypto.new('Vampires are people too!')
-# p a.plaintext_segments
  a.ciphertext

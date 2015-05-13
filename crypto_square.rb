@@ -23,14 +23,14 @@ class Crypto
     total_result = []
     size_to_use = size - 1
     first  = 0
-    until first == 4
+    until first == size_to_use
       second = 0 
       result = []
       result << @plain_result[first][second]
       p result
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten(4)
+      p total_result.flatten
     end
     corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
@@ -39,14 +39,14 @@ class Crypto
 
     first = 0 
 
-    until first == 4
+    until first == size_to_use
       second = 1 
       result = []
       result << @plain_result[first][second]
       puts result
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten(4)
+      p total_result.flatten
     end
     corrected = []
     corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
@@ -55,7 +55,7 @@ class Crypto
 
     first = 0 
 
-    until first == 4
+    until first == size_to_use
       second = 2 
       result = []
       # puts "Letters - > #{@plain_result[first][second]}"
@@ -63,7 +63,7 @@ class Crypto
       p result
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten(4)
+      p total_result.flatten
     end
     corrected = []
     corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
@@ -72,14 +72,14 @@ class Crypto
 
     first = 0
 
-    until first == 4
+    until first == size_to_use
       second = 3 
       result = []
       result << @plain_result[first][second]
       p result 
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten(4)
+      p total_result.flatten
     end
     corrected = []
     corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
@@ -88,7 +88,7 @@ class Crypto
 
     first = 0
     
-    until first == 4
+    until first == size_to_use
       second = 4
       result = []
       result << @plain_result[first][second]

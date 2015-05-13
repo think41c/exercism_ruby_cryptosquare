@@ -8,10 +8,11 @@ class Crypto
 
   def normalize_ciphertext
     cipher = ciphertext.join
-    cipher.insert(4, " ")
-    cipher.insert(9, " ")
-    cipher.insert(14, " ")
-    cipher.insert(19, " ")
+    size_to_use = size - 1
+    cipher.insert(size_to_use, " ")
+    cipher.insert(size_to_use+size, " ")
+    cipher.insert(size_to_use+size+size, " ")
+    cipher.insert(size_to_use+size+size+size, " ")
   end
 
   def ciphertext

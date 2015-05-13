@@ -28,27 +28,44 @@ class Crypto
     #   puts total_result
     #   total_result << result.join.scan(/.{1,#{size}}/)
     # end
-    p @plain_result
-    p @plain_result[0][0]
-    p @plain_result[1][0]
-    p @plain_result[2][0]
-    p @plain_result[3][0]
-    p @plain_result[0][1]
-    p @plain_result[1][1]
-    p @plain_result[2][1]
-    p @plain_result[3][1]
-    p @plain_result[0][2]
-    p @plain_result[1][2]
-    p @plain_result[2][2]
-    p @plain_result[3][2]
-    p @plain_result[0][3]
-    p @plain_result[1][3]
-    p @plain_result[2][3]
-    p @plain_result[3][3]
-    p @plain_result[0][4]
-    p @plain_result[1][4]
-    p @plain_result[2][4]
-    p @plain_result[3][4]
+    
+    p size
+    first  = 0
+    second = 1 
+    until first == 4
+      second = 0 
+      result = []
+      puts "Letters - > #{@plain_result[first][second]}"
+      
+      until second == 4
+        puts "Second- > #{@plain_result[first][second]}"
+        puts second
+        second += 1 
+      end
+      first += 1
+    end
+
+    # p @plain_result
+    # p @plain_result[0][0]
+    # p @plain_result[1][0]
+    # p @plain_result[2][0]
+    # p @plain_result[3][0]
+    # p @plain_result[0][1]
+    # p @plain_result[1][1]
+    # p @plain_result[2][1]
+    # p @plain_result[3][1]
+    # p @plain_result[0][2]
+    # p @plain_result[1][2]
+    # p @plain_result[2][2]
+    # p @plain_result[3][2]
+    # p @plain_result[0][3]
+    # p @plain_result[1][3]
+    # p @plain_result[2][3]
+    # p @plain_result[3][3]
+    # p @plain_result[0][4]
+    # p @plain_result[1][4]
+    # p @plain_result[2][4]
+    # p @plain_result[3][4]
     total_result.flatten.join
   end
 

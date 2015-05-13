@@ -23,16 +23,15 @@ class Crypto
     total_result = []
     size_to_use = size - 1
     first  = 0
+    second = 0 
     until first == size_to_use
-      second = 0 
+
       result = []
       result << @plain_result[first][second]
-      p result
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten
     end
-    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
+    corrected << total_result.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     p corrected
 
@@ -60,7 +59,6 @@ class Crypto
       result = []
       # puts "Letters - > #{@plain_result[first][second]}"
       result << @plain_result[first][second]
-      p result
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten
@@ -76,7 +74,6 @@ class Crypto
       second = 3 
       result = []
       result << @plain_result[first][second]
-      p result 
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten
@@ -92,7 +89,6 @@ class Crypto
       second = 4
       result = []
       result << @plain_result[first][second]
-      p result 
       first += 1
       total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)

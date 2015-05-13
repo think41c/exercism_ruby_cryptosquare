@@ -28,10 +28,10 @@ class Crypto
       result << @plain_result[first][second]
       p result
       first += 1
-      total_result << result.join.scan(/.{1,size_to_use}/)
+      total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)
     end
-    corrected << total_result.flatten.join.scan(/.{1,size_to_use}/)
+    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     p corrected
 
@@ -44,11 +44,11 @@ class Crypto
       result << @plain_result[first][second]
       puts result
       first += 1
-      total_result << result.join.scan(/.{1,4}/)
+      total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)
     end
     corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     p corrected
 
@@ -61,11 +61,11 @@ class Crypto
       result << @plain_result[first][second]
       p result
       first += 1
-      total_result << result.join.scan(/.{1,4}/)
+      total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)
     end
     corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     p corrected
 
@@ -77,11 +77,11 @@ class Crypto
       result << @plain_result[first][second]
       p result 
       first += 1
-      total_result << result.join.scan(/.{1,4}/)
+      total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)
     end
     corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     p corrected
 
@@ -93,11 +93,11 @@ class Crypto
       result << @plain_result[first][second]
       p result 
       first += 1
-      total_result << result.join.scan(/.{1,4}/)
+      total_result << result.join.scan(/.{1,#{size_to_use}}/)
       p total_result.flatten(4)
     end
     corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
     corrected = corrected.flatten
     corrected
 

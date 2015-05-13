@@ -7,6 +7,12 @@ class Crypto
   end
 
   def normalize_ciphertext
+    cipher = ciphertext.join
+    cipher.insert(4, " ")
+    cipher.insert(9, " ")
+    cipher.insert(14, " ")
+    cipher.insert(19, " ")
+
   end
 
   def ciphertext
@@ -23,7 +29,13 @@ class Crypto
       result << @plain_result[first][second]
       p result
       first += 1
+      total_result << result.join.scan(/.{1,4}/)
+      p total_result.flatten(4)
     end
+    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected = corrected.flatten
+    p corrected
+
 
     first = 0 
 
@@ -33,7 +45,13 @@ class Crypto
       result << @plain_result[first][second]
       puts result
       first += 1
+      total_result << result.join.scan(/.{1,4}/)
+      p total_result.flatten(4)
     end
+    corrected = []
+    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected = corrected.flatten
+    p corrected
 
     first = 0 
 
@@ -44,7 +62,13 @@ class Crypto
       result << @plain_result[first][second]
       p result
       first += 1
+      total_result << result.join.scan(/.{1,4}/)
+      p total_result.flatten(4)
     end
+    corrected = []
+    corrected << total_result.flatten.join.scan(/.{1,4}/)
+    corrected = corrected.flatten
+    p corrected
 
     first = 0
 
@@ -57,10 +81,10 @@ class Crypto
       total_result << result.join.scan(/.{1,4}/)
       p total_result.flatten(4)
     end
+    corrected = []
     corrected << total_result.flatten.join.scan(/.{1,4}/)
     corrected = corrected.flatten
     p corrected
-
 
     first = 0
     
@@ -73,9 +97,11 @@ class Crypto
       total_result << result.join.scan(/.{1,4}/)
       p total_result.flatten(4)
     end
+    corrected = []
     corrected << total_result.flatten.join.scan(/.{1,4}/)
     corrected = corrected.flatten
-    p corrected
+    corrected
+
   end
 
   def plaintext_segments
@@ -85,7 +111,7 @@ class Crypto
     plain_rows = []
     until col_counter == row_characters * row_characters
       plain_rows << @result[col_counter]
-      col_counter += 1 
+      col_counter += 1
     end
     plain_rows
     @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)

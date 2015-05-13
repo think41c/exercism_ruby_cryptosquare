@@ -63,6 +63,29 @@ class Crypto
       first += 1
     end
 
+    first = 0
+
+    until first == 4
+      second = 3 
+      result = []
+      result << @plain_result[first][second]
+      p result 
+      first += 1
+    end
+
+    first = 0
+    
+    until first == 4
+      second = 4
+      result = []
+      result << @plain_result[first][second]
+      p result 
+      first += 1
+      total_result << result.join.scan(/.{1,#{size}}/)
+      p total_result
+    end
+
+
     # p @plain_result
     # p @plain_result[0][0]
     # p @plain_result[1][0]

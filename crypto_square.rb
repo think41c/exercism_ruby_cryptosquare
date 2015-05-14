@@ -35,12 +35,11 @@ class Crypto
       total_array_result << ciper_result.join.scan(/.{1,#{size}}/)
       xyz =  ciper_result.join.scan(/.{1,#{size}}/)
       p xyz
-      # p total_array_result.flatten
-      puts "@#@@@@@@@@@@@@@@@@@@@@@@@@2 looping here"
       row_count = 0 
       col_count += 1 
+      xyz
     end
-     # p ciper_result
+    xyz.join
   end
 
 

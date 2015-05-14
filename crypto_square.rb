@@ -17,7 +17,7 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    puts "The plain result - #{puts @plain_result} and the size is -> #{size}"
+    # puts "The plain result - #{puts @plain_result} and the size is -> #{size}"
     row_count = 0
     col_count = 0
     ciper_result = []
@@ -26,15 +26,12 @@ class Crypto
     until letter_counter >= @len
       until row_count >= size
         ciper_result << @plain_result[row_count][col_count]
-        puts ciper_result
-        puts "hi"
         row_count += 1
         letter_counter += 1
       end
 
       total_array_result << ciper_result.join.scan(/.{1,#{size}}/)
-      xyz =  ciper_result.join.scan(/.{1,#{size}}/)
-      p xyz
+      xyz = ciper_result.join.scan(/.{1,#{size}}/)
       row_count = 0 
       col_count += 1 
       xyz

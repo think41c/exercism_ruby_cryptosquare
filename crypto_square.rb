@@ -17,22 +17,30 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    puts "The plain result - #{@plain_result} and the size is -> #{size}"
+    puts "The plain result - #{puts @plain_result} and the size is -> #{size}"
     row_count = 0
     col_count = 0
     ciper_result = []
     letter_counter = 0
-    until letter_counter = @len
-      until row_count == size
+    total_array_result = []
+    until letter_counter >= @len
+      until row_count >= size
         ciper_result << @plain_result[row_count][col_count]
-        p ciper_result
+        puts ciper_result
+        puts "hi"
         row_count += 1
-        letter_counter =+ 1
+        letter_counter += 1
       end
+
+      total_array_result << ciper_result.join.scan(/.{1,#{size}}/)
+      xyz =  ciper_result.join.scan(/.{1,#{size}}/)
+      p xyz
+      # p total_array_result.flatten
+      puts "@#@@@@@@@@@@@@@@@@@@@@@@@@2 looping here"
       row_count = 0 
       col_count += 1 
     end
-    ciper_result
+     # p ciper_result
   end
 
 
@@ -64,30 +72,6 @@ class Crypto
   end
 end
 
-a = Crypto.new('abcdefghij')
+a = Crypto.new('We all know interspecies romance is weird.')
 # a = Crypto.new('Vampires are people too!')
- a.ciphertext
-
-
- ###### Example of the pattern I need to pull 
-    # p @plain_result
-    # p @plain_result[0][0]
-    # p @plain_result[1][0]
-    # p @plain_result[2][0]
-    # p @plain_result[3][0]
-    # p @plain_result[0][1]
-    # p @plain_result[1][1]
-    # p @plain_result[2][1]
-    # p @plain_result[3][1]
-    # p @plain_result[0][2]
-    # p @plain_result[1][2]
-    # p @plain_result[2][2]
-    # p @plain_result[3][2]
-    # p @plain_result[0][3]
-    # p @plain_result[1][3]
-    # p @plain_result[2][3]
-    # p @plain_result[3][3]
-    # p @plain_result[0][4]
-    # p @plain_result[1][4]
-    # p @plain_result[2][4]
-    # p @plain_result[3][4]
+a.ciphertext

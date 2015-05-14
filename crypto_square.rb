@@ -16,89 +16,25 @@ class Crypto
   end
 
   def ciphertext
-    corrected = []
     plaintext_segments
-    puts "This is the plain result #{ @plain_result}"
-    row_counter = 0
-    total_result = []
-    size_to_use = size - 1
-    first  = 0
-    second = 0 
-    until first == size_to_use
-
-      result = []
-      result << @plain_result[first][second]
-      first += 1
-      total_result << result.join.scan(/.{1,#{size_to_use}}/)
+    puts "The plain result - #{@plain_result} and the size is -> #{size}"
+    row_count = 0
+    col_count = 0
+    ciper_result = []
+    letter_counter = 0
+    until letter_counter = @len
+      until row_count == size
+        ciper_result << @plain_result[row_count][col_count]
+        p ciper_result
+        row_count += 1
+        letter_counter =+ 1
+      end
+      row_count = 0 
+      col_count += 1 
     end
-    corrected << total_result.join.scan(/.{1,#{size_to_use}}/)
-    corrected = corrected.flatten
-    p corrected
-
-
-    first = 0 
-
-    until first == size_to_use
-      second = 1 
-      result = []
-      result << @plain_result[first][second]
-      puts result
-      first += 1
-      total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten
-    end
-    corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
-    corrected = corrected.flatten
-    p corrected
-
-    first = 0 
-
-    until first == size_to_use
-      second = 2 
-      result = []
-      # puts "Letters - > #{@plain_result[first][second]}"
-      result << @plain_result[first][second]
-      first += 1
-      total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten
-    end
-    corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
-    corrected = corrected.flatten
-    p corrected
-
-    first = 0
-
-    until first == size_to_use
-      second = 3 
-      result = []
-      result << @plain_result[first][second]
-      first += 1
-      total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten
-    end
-    corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
-    corrected = corrected.flatten
-    p corrected
-
-    first = 0
-    
-    until first == size_to_use
-      second = 4
-      result = []
-      result << @plain_result[first][second]
-      first += 1
-      total_result << result.join.scan(/.{1,#{size_to_use}}/)
-      p total_result.flatten(4)
-    end
-    corrected = []
-    corrected << total_result.flatten.join.scan(/.{1,#{size_to_use}}/)
-    corrected = corrected.flatten
-    corrected
-
+    ciper_result
   end
+
 
   def plaintext_segments
     col_counter = 0
@@ -128,7 +64,8 @@ class Crypto
   end
 end
 
-a = Crypto.new('Vampires are people too!')
+a = Crypto.new('abcdefghij')
+# a = Crypto.new('Vampires are people too!')
  a.ciphertext
 
 

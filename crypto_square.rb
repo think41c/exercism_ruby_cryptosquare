@@ -25,6 +25,9 @@ class Crypto
     total_array_result = []
     until letter_counter >= @len
       until row_count >= size
+        # Problem line is below - row_count turns nil and col_count can't be called on it. 
+        # If we test for [row_count] being a nil BEFORE we call the [col_count] method on it. 
+        # Then this will solve the issue. 
         ciper_result << @plain_result[row_count][col_count]
         row_count += 1
         letter_counter += 1
@@ -70,4 +73,4 @@ end
 
 a = Crypto.new('We all know interspecies romance is weird.')
 # a = Crypto.new('Vampires are people too!')
-a.ciphertext
+p a.ciphertext

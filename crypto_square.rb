@@ -9,10 +9,20 @@ class Crypto
   def normalize_ciphertext
     cipher = ciphertext
     size_to_use = size - 1
-    cipher.insert(size_to_use, " ")
-    cipher.insert(size_to_use+size, " ")
-    cipher.insert(size_to_use+size+size, " ")
-    cipher.insert(size_to_use+size+size+size, " ")
+    num_of_spaces = size - 2
+    cipher.insert(size_to_use," ")
+    size_to_use = size_to_use+size
+    num_of_spaces.times do 
+     
+      puts "doing it x times"
+      p cipher.insert(size_to_use, " ")
+      size_to_use += size
+    end
+    cipher
+    # cipher.insert(size_to_use, " ")
+    # cipher.insert(size_to_use+size, " ")
+    # cipher.insert(size_to_use+size+size, " ")
+    # cipher.insert(size_to_use+size+size+size, " ")
   end
 
   def ciphertext
@@ -28,15 +38,15 @@ class Crypto
         row_char = 0 
         col_char += 1 
       end  
-      ciper_result << @plain_result[row_char][col_char]
-      row_char += 1
-      x += 1
+    ciper_result << @plain_result[row_char][col_char]
+    row_char += 1
+    x += 1
     end
-      total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
-      xyz = ciper_result.join.scan(/.{1,#{new_size}}/)
-      xyz = xyz.join
+    
+    total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
+    xyz = ciper_result.join.scan(/.{1,#{new_size}}/)
+    xyz = xyz.join
   end
-
 
   def plaintext_segments
     col_counter = 0
@@ -66,5 +76,7 @@ class Crypto
   end
 end
 
+puts "hi"
 a = Crypto.new('Vampires are people too!')
-p a.ciphertext
+p a.normalize_ciphertext
+

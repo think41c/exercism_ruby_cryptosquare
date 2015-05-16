@@ -75,5 +75,4 @@ class Crypto
 end
 
 a = Crypto.new('Vampires are people too!')
-# a = Crypto.new('Vampires are people too!')
 p a.ciphertext

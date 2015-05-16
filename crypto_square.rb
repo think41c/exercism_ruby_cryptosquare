@@ -26,20 +26,20 @@ class Crypto
     new_size = size - 1
     row_char = 0
     col_char = 0 
-    x        = 0
-    until x == size * size
+    scans    = 0
+    until scans == size * size
       if @plain_result[row_char].nil? 
         row_char = 0 
         col_char += 1 
       end  
     ciper_result << @plain_result[row_char][col_char]
     row_char += 1
-    x += 1
+    scans += 1
     end
     
     total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
-    xyz = ciper_result.join.scan(/.{1,#{new_size}}/)
-    xyz = xyz.join
+    encoded_ciphertext = ciper_result.join.scan(/.{1,#{new_size}}/)
+    encoded_ciphertext = encoded_ciphertext.join
   end
 
   def plaintext_segments

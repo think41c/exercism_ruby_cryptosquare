@@ -7,9 +7,9 @@ class Crypto
   end
 
   def normalize_ciphertext
-    cipher = ciphertext
-    size_to_use = size - 1
-    num_of_spaces = size - 2
+    cipher         = ciphertext
+    size_to_use    = size - 1
+    num_of_spaces  = size - 2
     if size_to_use == 1
       cipher.insert(2, " ")
     else
@@ -49,14 +49,14 @@ class Crypto
   def plaintext_segments
     col_counter = 0
     row_counter = 0
-    row_characters = size
-    plain_rows = []
-    until col_counter == row_characters * row_characters
+    row_chars   = size
+    plain_rows  = []
+    until col_counter == row_chars ** 2 
       plain_rows << @result[col_counter]
       col_counter += 1
     end
     plain_rows
-    @plain_result = plain_rows.join.scan(/.{1,#{row_characters}}/)
+    @plain_result = plain_rows.join.scan(/.{1,#{row_chars}}/)
   end
 
   def normalize_plaintext
@@ -73,5 +73,3 @@ class Crypto
     square
   end
 end
-crypto = Crypto.new('I am')
-p crypto.normalize_ciphertext

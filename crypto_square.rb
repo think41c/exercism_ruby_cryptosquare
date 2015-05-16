@@ -16,29 +16,21 @@ class Crypto
   end
 
   def ciphertext
-    # word[a][b]   . A = row. B = column. 
     plaintext_segments
-    puts @plain_result
     total_array_result = []
     ciper_result = []
     new_size = size - 1
     row_char = 0
     col_char = 0 
     x        = 0
-    puts size
     until x == size * size
       if @plain_result[row_char].nil? 
         row_char = 0 
         col_char += 1 
       end  
-
-      if @plain_result[row_char][col_char].nil?
-        puts "You're at the end"
-      end
       ciper_result << @plain_result[row_char][col_char]
       row_char += 1
       x += 1
-      p total_array_result.join
     end
       total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
       xyz = ciper_result.join.scan(/.{1,#{new_size}}/)

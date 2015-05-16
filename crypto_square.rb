@@ -7,7 +7,7 @@ class Crypto
   end
 
   def normalize_ciphertext
-    cipher = ciphertext.join
+    cipher = ciphertext
     size_to_use = size - 1
     cipher.insert(size_to_use, " ")
     cipher.insert(size_to_use+size, " ")
@@ -16,39 +16,33 @@ class Crypto
   end
 
   def ciphertext
+    # word[a][b]   . A = row. B = column. 
     plaintext_segments
-    # puts "The plain result - #{puts @plain_result} and the size is -> #{size}"
-    row_count = 0
-    col_count = 0
-    ciper_result = []
-    letter_counter = 0
+    puts @plain_result
     total_array_result = []
-    puts "hi"
-    until letter_counter >= @len
-      puts "here?"
-      until row_count >= size
-        puts "there?"
-        # Problem line is below - row_count turns nil and col_count can't be called on it. 
-        # If we test for [row_count] being a nil BEFORE we call the [col_count] method on it. 
-        # Then this will solve the issue. 
+    ciper_result = []
+    new_size = size - 1
+    row_char = 0
+    col_char = 0 
+    x        = 0
+    puts size
+    until x == size * size
+      if @plain_result[row_char].nil? 
+        row_char = 0 
+        col_char += 1 
+      end  
 
-        # This is the method needed to determine whether to run the standard logic. 
-        p @plain_result[row_count].nil?   
-
-
-        puts "Is this blank/nil? -> #{@plain_result[row_count]}"
-        # ciper_result << @plain_result[row_count][col_count]
-        row_count += 1
-        letter_counter += 1
+      if @plain_result[row_char][col_char].nil?
+        puts "You're at the end"
       end
-
-      total_array_result << ciper_result.join.scan(/.{1,#{size}}/)
-      xyz = ciper_result.join.scan(/.{1,#{size}}/)
-      row_count = 0 
-      col_count += 1 
-      xyz
+      ciper_result << @plain_result[row_char][col_char]
+      row_char += 1
+      x += 1
+      p total_array_result.join
     end
-    xyz.join
+      total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
+      xyz = ciper_result.join.scan(/.{1,#{new_size}}/)
+      xyz = xyz.join
   end
 
 

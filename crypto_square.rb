@@ -13,16 +13,10 @@ class Crypto
     cipher.insert(size_to_use," ")
     size_to_use = size_to_use+size
     num_of_spaces.times do 
-     
-      puts "doing it x times"
-      p cipher.insert(size_to_use, " ")
+      cipher.insert(size_to_use, " ")
       size_to_use += size
     end
     cipher
-    # cipher.insert(size_to_use, " ")
-    # cipher.insert(size_to_use+size, " ")
-    # cipher.insert(size_to_use+size+size, " ")
-    # cipher.insert(size_to_use+size+size+size, " ")
   end
 
   def ciphertext
@@ -76,7 +70,7 @@ class Crypto
   end
 end
 
-puts "hi"
-a = Crypto.new('Vampires are people too!')
-p a.normalize_ciphertext
+# puts "hi"
+# a = Crypto.new('Vampires are people too!')
+# p a.normalize_ciphertext
 

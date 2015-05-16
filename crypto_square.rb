@@ -10,13 +10,17 @@ class Crypto
     cipher = ciphertext
     size_to_use = size - 1
     num_of_spaces = size - 2
-    cipher.insert(size_to_use," ")
-    size_to_use = size_to_use+size
-    num_of_spaces.times do 
-      cipher.insert(size_to_use, " ")
-      size_to_use += size
+    if size_to_use == 1
+      cipher.insert(2, " ")
+    else
+      cipher.insert(size_to_use," ")
+      size_to_use = size_to_use+size
+      num_of_spaces.times do 
+        cipher.insert(size_to_use, " ")
+        size_to_use += size
     end
     cipher
+    end
   end
 
   def ciphertext
@@ -69,8 +73,5 @@ class Crypto
     square
   end
 end
-
-# puts "hi"
-# a = Crypto.new('Vampires are people too!')
-# p a.normalize_ciphertext
-
+crypto = Crypto.new('I am')
+p crypto.normalize_ciphertext

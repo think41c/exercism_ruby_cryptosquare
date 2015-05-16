@@ -84,7 +84,6 @@ class CryptoTest < Minitest::Test
   end
 
   def test_normalized_ciphertext_when_just_less_then_a_full_square
-    skip("Skip")
     crypto = Crypto.new('I am')
     assert_equal 'im a', crypto.normalize_ciphertext
   end

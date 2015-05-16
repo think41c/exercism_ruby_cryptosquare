@@ -21,12 +21,12 @@ class Crypto
 
   def ciphertext
     plaintext_segments
-    total_array_result = []
+    word_result  = []
     ciper_result = []
-    new_size = size - 1
-    row_char = 0
-    col_char = 0 
-    scans    = 0
+    new_size     = size - 1
+    row_char     = 0
+    col_char     = 0 
+    scans        = 0
     until scans == size * size
       if @plain_result[row_char].nil? 
         row_char = 0 
@@ -37,7 +37,7 @@ class Crypto
     scans += 1
     end
     
-    total_array_result << ciper_result.join.scan(/.{1,#{new_size}}/)
+    word_result  << ciper_result.join.scan(/.{1,#{new_size}}/)
     encoded_ciphertext = ciper_result.join.scan(/.{1,#{new_size}}/)
     encoded_ciphertext = encoded_ciphertext.join
   end
